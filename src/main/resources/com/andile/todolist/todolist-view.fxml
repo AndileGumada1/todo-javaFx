@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" prefHeight="548.0" prefWidth="682.0" spacing="20.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17.0.2-ea" fx:controller="com.andile.todolist.controller.TodoListController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+    <HBox id="HBox1" alignment="CENTER_LEFT" spacing="5.0">
+        <Label text="Item: " />
+        <TextField fx:id="todoItem" />
+        <Label text="Category: " />
+        <ComboBox fx:id="todoCategory" />
+        <Label text="Date: " />
+        <DatePicker fx:id="todoDate" />
+    </HBox>
+    <TableView fx:id="todoList">
+        <columns>
+            <TableColumn minWidth="75.0"    sortable="true" text="Name">
+                <cellValueFactory>
+                    <PropertyValueFactory property="name" />
+                </cellValueFactory>
+            </TableColumn>
+
+            <TableColumn text="Category" minWidth="50.0" sortable="true">
+                <cellValueFactory>
+                    <PropertyValueFactory property="category" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn minWidth="50.0" sortable="true" text="Date">
+                <cellValueFactory>
+                    <PropertyValueFactory property="date" />
+                </cellValueFactory>
+            </TableColumn>
+        </columns>
+    </TableView>
+    <HBox id="HBox2" alignment="CENTER" spacing="5.0">
+        <Button alignment="BOTTOM_LEFT" onAction="#onAddButtonClick" text="Add" />
+        <Button alignment="BOTTOM_RIGHT" onAction="#onRemoveButtonClick" text="Remove" />
+    </HBox>
+</VBox>
